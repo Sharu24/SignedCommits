@@ -84,7 +84,9 @@
 ## Miscellaneous GPG commands
 
 To add a Secret SuBKey, Run the following command
+
 ```gpg --edit-key <SECret key>```
 
 List gpg public and private keys for a specific user email address
+
 ```gpg --list-keys email-address```
