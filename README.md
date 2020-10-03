@@ -27,35 +27,42 @@
    4. Finally specify a appropriate identifier for your key with your email address
    5. Finally user will be prompted to enter a Passphrase to protect their key.
 
-```
-gpg --full-generate-key
-```
+   ```
+   gpg --full-generate-key
+   ```
 
 4. List all the gpg-suite keys.
-
-   1. sec => 'SECret key'
-   2. ssb => 'Secret SuBkey'
-   3. pub => 'PUBlic key'
-   4. sub => 'public SUBkey'
 
 ```
 gpg --list-secret-keys --keyid-format LONG
 ```
 
-5. To add this key to to GitHUB Account,
+    ---------------------
+    |sec | SECret key |
+    |ssb | Secret SuBkey |
+    |pub | PUBlic key |
+    |sub | public SUBkey |
+
+1. To add this key to to GitHUB Account,
 
    1. Export the Key
+      1. Get the Secret Key
+      2. Export the key
 
-```
-Someones-MacBook$ gpg --list-secret-keys --keyid-format LONG
-sec   rsa2048/ABCDEFGHIJKLMNOP 2020-02-20 [SC]
-gpg --armor --export ABCDEFGHIJKLMNOP
-```
+   ```
+   My-Computer$ gpg --list-secret-keys --keyid-format LONG
+   sec   rsa2048/ABCDEFGHIJKLMNOP 2020-02-20 [SC]
+   ```
 
-6. Add gpg key on to github account (New GPG key)
-   https://github.com/settings/keys
+   ```
+   My-Computer$ gpg --armor --export ABCDEFGHIJKLMNOP
+   ```
 
-7. Telling Git about your signed key
+2. Add gpg key on to github account
+
+   1. https://github.com/settings/keys (New GPG key)
+
+3. Telling Git about your signed key
 
    ```
    git config --global user.signingkey ABCDEFGHIJKLMNOP
@@ -64,7 +71,7 @@ gpg --armor --export ABCDEFGHIJKLMNOP
 
    8.https://github.com/Sharu24/SignedCommits/settings/branch_protection_rules
 
-8. git commit -S -m <your-commit-mmessage>
+4. git commit -S -m <your-commit-mmessage>
 
 ---
 
@@ -72,12 +79,12 @@ gpg --armor --export ABCDEFGHIJKLMNOP
 
 To add a Secret SuBKey, Run the following command
 
-```
-gpg --edit-key <SECret key>
-```
+    ```
+    gpg --edit-key <SECret key>
+    ```
 
 List gpg public and private keys for a specific user email address
 
-```
-gpg --list-keys email-address
-```
+    ```
+    gpg --list-keys email-address
+    ```
