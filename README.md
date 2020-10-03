@@ -25,6 +25,7 @@
       2. Specify its expiration, and the same needs to be communicated
    6. Specify and identifier for your key with your email address
    7. When prompted, enter a Passphrase to protect the key.
+   
 
    ```
    gpg --full-generate-key
@@ -46,9 +47,11 @@
    1. Export the Key
       1. Get the Secret Key
       2. Export the key
+   
 
    ```
    My-Computer$ gpg --list-secret-keys --keyid-format LONG
+
    sec   rsa2048/ABCDEFGHIJKLMNOP 2020-02-20 [SC]
    ```
 
@@ -69,20 +72,19 @@
 
    [github-signed-commit-link](https://github.com/Sharu24/SignedCommits/settings/branch_protection_rules)
 
-8.  git commit -S -m <your-commit-mmessage>
+8. To have "Signed" commit the changes made use '-S' option
+   ```
+   git add .
+   git commit -S -m your-commit-mmessage
+   git push -u origin main
+   ```
 
 ---
 
 ## Miscellaneous GPG commands
 
 To add a Secret SuBKey, Run the following command
-
-    ```
-    gpg --edit-key <SECret key>
-    ```
+```gpg --edit-key <SECret key>```
 
 List gpg public and private keys for a specific user email address
-
-    ```
-    gpg --list-keys email-address
-    ```
+```gpg --list-keys email-address```
